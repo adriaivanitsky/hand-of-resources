@@ -11,4 +11,16 @@ describe('hand-of-resources routes', () => {
   afterAll(() => {
     pool.end();
   });
+
+
+test('should create a table row', async () => {
+  const expected = {
+    name: 'flourite',
+    crystal_system: 'isometric',
+    hardness: '4',
+  };
+  const response = await request(app).post('/api/v1/rocks').send(expected);
+  expect(response.body).toEqual({ id: expect.any(String), ...expected});
+})
+
 });
