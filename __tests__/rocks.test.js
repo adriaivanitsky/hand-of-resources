@@ -40,4 +40,10 @@ test('should read the table', async () => {
   expect(response.body).toEqual(expected);
 });
 
+test('should find rock by its id', async () => {
+  const expected = { id: '3', name: 'amethyst', crystal_system: 'trigonal', hardness: '7' }
+  const response = await request(app).get('/api/v1/rocks/3');
+  expect(response.body).toEqual(expected);
+  })
+
 });
