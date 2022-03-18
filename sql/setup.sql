@@ -25,20 +25,20 @@ VALUES
 
 
 
--- DROP TABLE IF EXISTS guitars;
+DROP TABLE IF EXISTS guitars;
 
--- CREATE TABLE guitars (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     year TEXT NOT NULL
--- );
+CREATE TABLE guitars (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    year TEXT NOT NULL
+);
 
--- INSERT INTO 
---     guitars (name, year)
--- VALUES
---     ('gibson les paul', '1982'),
---     ('fender mustang', '1974'),
---     ('rickenbacker', '1974');
+INSERT INTO 
+    guitars (name, year)
+VALUES
+    ('gibson les paul', '1982'),
+    ('fender mustang', '1974'),
+    ('rickenbacker', '1974');
 
 
 
