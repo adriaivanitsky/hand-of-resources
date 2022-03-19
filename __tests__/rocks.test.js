@@ -12,46 +12,53 @@ describe('hand-of-resources routes', () => {
     pool.end();
   });
 
+  test('should create a table row', async () => {
+    const expected = {
+      name: 'flourite',
+      crystal_system: 'isometric',
+      hardness: '4',
+    };
+    const response = await request(app).post('/api/v1/rocks').send(expected);
+    expect(response.body).toEqual({ id: expect.any(String), ...expected });
+  });
 
-test('should create a table row', async () => {
-  const expected = {
-    name: 'flourite',
-    crystal_system: 'isometric',
-    hardness: '4',
-  };
-  const response = await request(app).post('/api/v1/rocks').send(expected);
-  expect(response.body).toEqual({ id: expect.any(String), ...expected});
-})
+  test('should read the table', async () => {
+    const expected = [
+      { id: '1', name: 'pyrite', crystal_system: 'cubic', hardness: '6' },
+      {
+        id: '2',
+        name: 'labradorite',
+        crystal_system: 'triclinic',
+        hardness: '6',
+      },
+      { id: '3', name: 'amethyst', crystal_system: 'trigonal', hardness: '7' },
+    ];
+    const response = await request(app).get('/api/v1/rocks');
 
-test('should read the table', async () => {
-    
-  const expected = [
-    { id: '1', name: 'pyrite', crystal_system: 'cubic', hardness: '6' },
-    {
-      id: '2',
-      name: 'labradorite',
-      crystal_system: 'triclinic',
-      hardness: '6',
-    },
-    { id: '3', name: 'amethyst', crystal_system: 'trigonal', hardness: '7' },
-  ];
-  const response = await request(app).get('/api/v1/rocks');
+    expect(response.body).toEqual(expected);
+  });
 
-  expect(response.body).toEqual(expected);
-});
-
-test('should find rock by its id', async () => {
-  const expected = { id: '3', name: 'amethyst', crystal_system: 'trigonal', hardness: '7' }
-  const response = await request(app).get('/api/v1/rocks/3');
-  expect(response.body).toEqual(expected);
-  })
-
+  test('should find rock by its id', async () => {
+    const expected = {
+      id: '3',
+      name: 'amethyst',
+      crystal_system: 'trigonal',
+      hardness: '7',
+    };
+    const response = await request(app).get('/api/v1/rocks/3');
+    expect(response.body).toEqual(expected);
+  });
 
   test('should update specific row corresponding to its individual id', async () => {
-    const expected = { id: '3', name: 'amethyst', crystal_system: 'trigonal', hardness: '6' }
-    const response = await request(app).patch('/api/v1/rocks/3').send({ hardness: '6' });
+    const expected = {
+      id: '3',
+      name: 'amethyst',
+      crystal_system: 'trigonal',
+      hardness: '6',
+    };
+    const response = await request(app)
+      .patch('/api/v1/rocks/3')
+      .send({ hardness: '6' });
     expect(response.body).toEqual(expected);
-  
-  })
-  
+  });
 });
