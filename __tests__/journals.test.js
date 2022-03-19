@@ -62,4 +62,12 @@ describe('journal routes', () => {
       .send({ pages: 100 });
     expect(response.body).toEqual(expected);
   });
+
+  test('should delete a journal by its id', async () => {
+    const expected = await Journal.findById(1);
+    const response = await request(app).delete(
+      `/api/v1/journals/${expected.id}`
+    );
+    expect(response.body).toEqual(expected);
+  });
 });
