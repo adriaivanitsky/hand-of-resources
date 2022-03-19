@@ -21,4 +21,23 @@ describe('journal routes', () => {
     const response = await request(app).post('/api/v1/journals').send(expected);
     expect(response.body).toEqual({ id: expect.any(String), ...expected });
   });
+
+  test('should read the table', async () => {
+    const expected = [
+      { id: '1', name: 'moleskine', pages: 100 },
+      {
+        id: '2',
+        name: 'leuchtturm',
+        pages: 250,
+      },
+      {
+        id: '3',
+        name: 'hobonichi',
+        pages: 300,
+      },
+    ];
+    const response = await request(app).get('/api/v1/journals');
+
+    expect(response.body).toEqual(expected);
+  });
 });
