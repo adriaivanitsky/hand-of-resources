@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../lib/app');
 const Rock = require('../lib/models/Rock');
 
-describe('hand-of-resources routes', () => {
+describe('rock routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
