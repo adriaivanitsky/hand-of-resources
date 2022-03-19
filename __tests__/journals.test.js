@@ -2,9 +2,9 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Guitar = require('../lib/models/Guitar');
+const Journal = require('../lib/models/Journal');
 
-describe('guitar routes', () => {
+describe('journal routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -14,10 +14,11 @@ describe('guitar routes', () => {
   });
 
   test('should create a new table row', async () => {
-      const expected = {
-          name: 'moleskine',
-          pages: '100',
-      };
-      const response = await (await request(app).post('/api/v1/journals')).setEncoding(expected);
-      expect(response.body).toEqual({ id: expect.any(String), ...expected });
+    const expected = {
+      name: 'moleskine',
+      pages: 100,
+    };
+    const response = await request(app).post('/api/v1/journals').send(expected);
+    expect(response.body).toEqual({ id: expect.any(String), ...expected });
   });
+});

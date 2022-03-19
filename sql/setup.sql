@@ -56,7 +56,7 @@ CREATE TABLE journals (
 );
 
 INSERT INTO 
-    journal (name, pages)
+    journals (name, pages)
 VALUES
     ('moleskine', 100),
     ('leuchtturm', 250),
