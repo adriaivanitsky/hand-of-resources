@@ -62,4 +62,12 @@ describe('guitar routes', () => {
       .send({ year: '1982' });
     expect(response.body).toEqual(expected);
   });
+
+  test('should delete a guitar by its id', async () => {
+    const expected = await Guitar.findById(1);
+    const response = await request(app).delete(
+      `/api/v1/guitars/${expected.id}`
+    );
+    expect(response.body).toEqual(expected);
+  });
 });
