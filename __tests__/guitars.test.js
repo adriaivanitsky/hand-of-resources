@@ -40,4 +40,14 @@ describe('guitar routes', () => {
 
     expect(response.body).toEqual(expected);
   });
+
+  test('should find guitar by its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'gibson les paul',
+      year: '1982',
+    };
+    const response = await request(app).get('/api/v1/guitars/1');
+    expect(response.body).toEqual(expected);
+  });
 });
