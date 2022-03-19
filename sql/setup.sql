@@ -68,20 +68,20 @@ VALUES
 
 
 
---     DROP TABLE IF EXISTS coffee;
+    DROP TABLE IF EXISTS coffees;
 
--- CREATE TABLE coffee (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     roast TEXT NOT NULL
--- );
+CREATE TABLE coffees (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    roast TEXT NOT NULL
+);
 
--- INSERT INTO 
---     coffee (name, roast)
--- VALUES
---     ('stumptown', 'light'),
---     ('coava', 'medium'),
---     ('portland coffee roasters', 'dark');
+INSERT INTO 
+    coffees (name, roast)
+VALUES
+    ('stumptown', 'light'),
+    ('coava', 'medium'),
+    ('portland coffee roasters', 'dark');
 
 
 
