@@ -50,4 +50,16 @@ describe('guitar routes', () => {
     const response = await request(app).get('/api/v1/guitars/1');
     expect(response.body).toEqual(expected);
   });
+
+  test('should update specific row corresponding to its individual id', async () => {
+    const expected = {
+      id: '1',
+      name: 'gibson les paul',
+      year: '1982',
+    };
+    const response = await request(app)
+      .patch('/api/v1/guitars/1')
+      .send({ year: '1982' });
+    expect(response.body).toEqual(expected);
+  });
 });
