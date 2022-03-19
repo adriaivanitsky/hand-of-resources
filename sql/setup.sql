@@ -47,20 +47,20 @@ VALUES
 
 
 
---     DROP TABLE IF EXISTS journals;
+    DROP TABLE IF EXISTS journals;
 
--- CREATE TABLE journals (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     pages INT NOT NULL
--- );
+CREATE TABLE journals (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    pages INT NOT NULL
+);
 
--- INSERT INTO 
---     journal (name, pages)
--- VALUES
---     ('moleskine', 100),
---     ('leuchtturm', 250),
---     ('hobonichi', 300);
+INSERT INTO 
+    journal (name, pages)
+VALUES
+    ('moleskine', 100),
+    ('leuchtturm', 250),
+    ('hobonichi', 300);
 
 
 
