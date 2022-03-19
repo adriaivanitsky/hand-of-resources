@@ -21,4 +21,23 @@ describe('guitar routes', () => {
     const response = await request(app).post('/api/v1/guitars').send(expected);
     expect(response.body).toEqual({ id: expect.any(String), ...expected });
   });
+
+  test('should read the table', async () => {
+    const expected = [
+      { id: '1', name: 'gibson les paul', year: '1982' },
+      {
+        id: '2',
+        name: 'fender mustang',
+        year: '1974',
+      },
+      {
+        id: '3',
+        name: 'rickenbacker',
+        crystal_system: '1974',
+      },
+    ];
+    const response = await request(app).get('/api/v1/guitars');
+
+    expect(response.body).toEqual(expected);
+  });
 });
