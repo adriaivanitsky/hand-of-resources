@@ -40,4 +40,14 @@ describe('journal routes', () => {
 
     expect(response.body).toEqual(expected);
   });
+
+  test('should find journal by its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'moleskine',
+      pages: 100,
+    };
+    const response = await request(app).get('/api/v1/journals/1');
+    expect(response.body).toEqual(expected);
+  });
 });
