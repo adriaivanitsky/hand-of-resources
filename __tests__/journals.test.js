@@ -50,4 +50,16 @@ describe('journal routes', () => {
     const response = await request(app).get('/api/v1/journals/1');
     expect(response.body).toEqual(expected);
   });
+
+  test('should update specific row corresponding to its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'moleskine',
+      pages: 100,
+    };
+    const response = await request(app)
+      .patch('/api/v1/journals/1')
+      .send({ pages: 100 });
+    expect(response.body).toEqual(expected);
+  });
 });
