@@ -33,7 +33,7 @@ describe('guitar routes', () => {
       {
         id: '3',
         name: 'rickenbacker',
-        crystal_system: '1974',
+        year: '1974',
       },
     ];
     const response = await request(app).get('/api/v1/guitars');
