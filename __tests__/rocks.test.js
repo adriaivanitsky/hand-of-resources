@@ -61,4 +61,10 @@ describe('hand-of-resources routes', () => {
       .send({ hardness: '6' });
     expect(response.body).toEqual(expected);
   });
+
+  test('should delete a rock by its id', async () => {
+    const expected = await Rock.findById(1);
+    const response = await request(app).delete(`/api/v1/rocks/${expected.id}`);
+    expect(response.body).toEqual(expected);
+  });
 });
