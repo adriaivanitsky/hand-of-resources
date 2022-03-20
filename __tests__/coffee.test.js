@@ -61,4 +61,12 @@ describe('coffee routes', () => {
       .send({ roast: 'light' });
     expect(response.body).toEqual(expected);
   });
+
+  test('should delete a coffee by its id', async () => {
+    const expected = await Coffee.findById(1);
+    const response = await request(app).delete(
+      `/api/v1/coffees/${expected.id}`
+    );
+    expect(response.body).toEqual(expected);
+  });
 });
