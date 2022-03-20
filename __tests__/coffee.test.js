@@ -49,4 +49,16 @@ describe('coffee routes', () => {
     const response = await request(app).get('/api/v1/coffees/1');
     expect(response.body).toEqual(expected);
   });
+
+  test('should update row corresponding to its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'stumptown',
+      roast: 'light',
+    };
+    const response = await request(app)
+      .patch('/api/v1/coffees/1')
+      .send({ roast: 'light' });
+    expect(response.body).toEqual(expected);
+  });
 });
