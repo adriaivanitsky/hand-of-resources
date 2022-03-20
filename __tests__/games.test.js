@@ -21,4 +21,16 @@ describe('game routes', () => {
     const response = await request(app).post('/api/v1/games').send(expected);
     expect(response.body).toEqual({ id: expect.any(String), ...expected });
   });
+
+  test('should read the table', async () => {
+    const expected = [
+      { id: '1', name: 'ocarina of time', system: 'N64' },
+
+      { id: '2', name: 'breath of the wild', system: 'nintendo switch' },
+
+      { id: '3', name: 'metroid', system: 'NES' },
+    ];
+    const response = await request(app).get('/api/v1/games');
+    expect(response.body).toEqual(expected);
+  });
 });
