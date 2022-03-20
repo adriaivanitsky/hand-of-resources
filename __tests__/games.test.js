@@ -33,4 +33,14 @@ describe('game routes', () => {
     const response = await request(app).get('/api/v1/games');
     expect(response.body).toEqual(expected);
   });
+
+  test('should find game by its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'ocarina of time',
+      system: 'N64',
+    };
+    const response = await request(app).get('/api/v1/games/1');
+    expect(response.body).toEqual(expected);
+  });
 });
