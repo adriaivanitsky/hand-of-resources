@@ -46,7 +46,7 @@ describe('coffee routes', () => {
       name: 'stumptown',
       roast: 'light',
     };
-    const response = await request(app).get('/api/v1/rocks/1');
+    const response = await request(app).get('/api/v1/coffees/1');
     expect(response.body).toEqual(expected);
   });
 });
