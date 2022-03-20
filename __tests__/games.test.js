@@ -43,4 +43,16 @@ describe('game routes', () => {
     const response = await request(app).get('/api/v1/games/1');
     expect(response.body).toEqual(expected);
   });
+
+  test('should update row by id', async () => {
+    const expected = {
+      id: '1',
+      name: 'ocarina of time',
+      system: 'N64',
+    };
+    const response = await request(app)
+      .patch('/api/v1/games/1')
+      .send({ system: 'N64' });
+    expect(response.body).toEqual(expected);
+  });
 });
