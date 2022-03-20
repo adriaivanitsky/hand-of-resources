@@ -90,20 +90,20 @@ VALUES
 
 
 
---     DROP TABLE IF EXISTS games;
+    DROP TABLE IF EXISTS games;
 
--- CREATE TABLE games (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     system TEXT NOT NULL
--- );
+CREATE TABLE games (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name TEXT NOT NULL,
+    system TEXT NOT NULL
+);
 
--- INSERT INTO 
---     games (name, system)
--- VALUES
---     ('ocarina of time', 'N64'),
---     ('breath of the wild', 'nintendo switch'),
---     ('metroid', 'NES');
+INSERT INTO 
+    games (name, system)
+VALUES
+    ('ocarina of time', 'N64'),
+    ('breath of the wild', 'nintendo switch'),
+    ('metroid', 'NES');
 
 
 
