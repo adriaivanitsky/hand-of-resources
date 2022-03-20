@@ -39,4 +39,14 @@ describe('coffee routes', () => {
     const response = await request(app).get('/api/v1/coffees');
     expect(response.body).toEqual(expected);
   });
+
+  test('should find coffee by its id', async () => {
+    const expected = {
+      id: '1',
+      name: 'stumptown',
+      roast: 'light',
+    };
+    const response = await request(app).get('/api/v1/rocks/1');
+    expect(response.body).toEqual(expected);
+  });
 });
