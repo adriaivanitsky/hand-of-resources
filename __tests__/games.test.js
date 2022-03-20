@@ -55,4 +55,10 @@ describe('game routes', () => {
       .send({ system: 'N64' });
     expect(response.body).toEqual(expected);
   });
+
+  test('should delete a rock by its id', async () => {
+    const expected = await Game.findById(1);
+    const response = await request(app).delete(`/api/v1/games/${expected.id}`);
+    expect(response.body).toEqual(expected);
+  });
 });
