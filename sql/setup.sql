@@ -56,7 +56,7 @@ CREATE TABLE journals (
 );
 
 INSERT INTO 
-    journal (name, pages)
+    journals (name, pages)
 VALUES
     ('moleskine', 100),
     ('leuchtturm', 250),
@@ -68,16 +68,16 @@ VALUES
 
 
 
-    DROP TABLE IF EXISTS coffee;
+    DROP TABLE IF EXISTS coffees;
 
-CREATE TABLE coffee (
+CREATE TABLE coffees (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name TEXT NOT NULL,
     roast TEXT NOT NULL
 );
 
 INSERT INTO 
-    coffee (name, roast)
+    coffees (name, roast)
 VALUES
     ('stumptown', 'light'),
     ('coava', 'medium'),
